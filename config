@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/arm64 5.13.4-1 Kernel Configuration
+# Linux/arm64 5.13.8-1 Kernel Configuration
 #
 CONFIG_CC_VERSION_TEXT="gcc (GCC) 10.2.0"
 CONFIG_CC_IS_GCC=y
@@ -779,6 +779,7 @@ CONFIG_BLK_PM=y
 # CONFIG_IOSCHED_BFQ is not set
 # end of IO Schedulers
 
+CONFIG_PREEMPT_NOTIFIERS=y
 CONFIG_ASN1=y
 CONFIG_UNINLINE_SPIN_UNLOCK=y
 CONFIG_ARCH_SUPPORTS_ATOMIC_RMW=y
