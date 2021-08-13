@@ -7,7 +7,7 @@ _tag="orange-pi-5.13-20210804-2106"
 _srcname=linux-${_tag}
 _kernelname=${pkgbase#linux}
 _desc="PinePhone kernel (Megi)"
-pkgver=5.13.9
+pkgver=5.13.10
 pkgrel=1
 arch=('aarch64')
 url="https://github.com/megous/linux/releases/tag/$_tag"
@@ -16,6 +16,7 @@ makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc' 'git' 'uboot-tools' '
 options=('!strip')
 source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar.gz"
         '5.13.8-9.patch'
+        '5.13.9-10.patch'
         'config'
         'linux.preset'
         '60-linux.hook'
