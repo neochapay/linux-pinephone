@@ -7,7 +7,7 @@ _tag="orange-pi-5.13-20210804-2106"
 _srcname=linux-${_tag}
 _kernelname=${pkgbase#linux}
 _desc="PinePhone kernel (Megi)"
-pkgver=5.13.11
+pkgver=5.13.12
 pkgrel=1
 arch=('aarch64')
 url="https://github.com/megous/linux/releases/tag/$_tag"
@@ -18,6 +18,7 @@ source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar
         '5.13.8-9.patch'
         '5.13.9-10.patch'
         '5.13.10-11.patch'
+        '5.13.11-12.patch'
         'config'
         'linux.preset'
         '60-linux.hook'
@@ -51,6 +52,7 @@ sha256sums=('575149d399994ab4037b93a9cb15c630ae912bc20e0ce0c142770107e9428a7f'
             'de5e1230c2e0e9e6a456db90dcd728a663186537278dba034b64dfc33f01a3a8'
             '46ef2f14c85a19467a9c8a3043ad43c2030600e5dee7e66e6df01cb3cc830a0c'
             'b39c61d8895afd38bbec78b08bcd6d0cf434168b1251e610159082b609cf43d9'
+            '4cd924481bf17f9459e1a29a477a0a121d0cb570504bc20a356577ba2fc1e657'
             '9eada9939485a925e40d27231d256f5fa463659316c16bc236ac62f2bb54d45a'
             'f704a0e790a310f88b76bf5ae7200ef6f47fd6c68c0d2447de0f121cfc93c5ad'
             'ae2e95db94ef7176207c690224169594d49445e04249d2499e9d2fbc117a0b21'
