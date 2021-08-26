@@ -16,8 +16,8 @@ makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc' 'git' 'uboot-tools' '
 options=('!strip')
 source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar.gz"
         '5.13.12-13.patch'
-        'https://github.com/smaeul/linux/commit/d1d849cae12db71aa81ceedaedc1b17a34790367.patch'
-        'https://github.com/smaeul/linux/commit/2423aac2d6f5db55da99e11fd799ee66fe6f54c6.patch'
+        'd1d849cae12db71aa81ceedaedc1b17a34790367.patch'
+        '2423aac2d6f5db55da99e11fd799ee66fe6f54c6.patch'
         'config'
         'linux.preset'
         '60-linux.hook'
