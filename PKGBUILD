@@ -3,22 +3,19 @@
 # Maintainer: Philip Müller <philm@manjaro.org>
 
 pkgbase=linux-pinephone
-_tag="orange-pi-5.13-20210804-2106"
+_tag="orange-pi-5.13-20210819-1611"
 _srcname=linux-${_tag}
 _kernelname=${pkgbase#linux}
 _desc="PinePhone kernel (Megi)"
-pkgver=5.13.12
-pkgrel=2
+pkgver=5.13.13
+pkgrel=1
 arch=('aarch64')
 url="https://github.com/megous/linux/releases/tag/$_tag"
 license=('GPL2')
 makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc' 'git' 'uboot-tools' 'dtc')
 options=('!strip')
 source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar.gz"
-        '5.13.8-9.patch'
-        '5.13.9-10.patch'
-        '5.13.10-11.patch'
-        '5.13.11-12.patch'
+        '5.13.12-13.patch'
         'https://github.com/smaeul/linux/commit/d1d849cae12db71aa81ceedaedc1b17a34790367.patch'
         'https://github.com/smaeul/linux/commit/2423aac2d6f5db55da99e11fd799ee66fe6f54c6.patch'
         'config'
@@ -50,11 +47,8 @@ source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar
         '0010-bootsplash.patch'
         '0011-bootsplash.patch'
         '0012-bootsplash.patch')
-sha256sums=('575149d399994ab4037b93a9cb15c630ae912bc20e0ce0c142770107e9428a7f'
-            'de5e1230c2e0e9e6a456db90dcd728a663186537278dba034b64dfc33f01a3a8'
-            '46ef2f14c85a19467a9c8a3043ad43c2030600e5dee7e66e6df01cb3cc830a0c'
-            'b39c61d8895afd38bbec78b08bcd6d0cf434168b1251e610159082b609cf43d9'
-            '4cd924481bf17f9459e1a29a477a0a121d0cb570504bc20a356577ba2fc1e657'
+sha256sums=('58c54ddb191d87852eed170a1ad9ecd309b9e8a143b03c0ef838a59bf8644275'
+            'd0ab948e3045c1badcf502ee33e554582aaa630e39585c1deeeebceae58ebe51'
             '55df9f725c2dc5d166866a40538af1938a1cc16a91658b94c3b971227a6bb986'
             '87eef2393009a07cec8fab18eab2a74a3658534ce745c2c36389dd334cf6f416'
             'b1db19c118f247bb225ad53396afcb0f5c63b0d9746ad67715362a69409e3e05'
