@@ -7,8 +7,8 @@ _tag="orange-pi-5.14-20210908-1256"
 _srcname=linux-${_tag}
 _kernelname=${pkgbase#linux}
 _desc="PinePhone kernel (Megi)"
-pkgver=5.14.2
-pkgrel=2
+pkgver=5.14.3
+pkgrel=1
 arch=('aarch64')
 url="https://github.com/megous/linux/releases/tag/$_tag"
 license=('GPL2')
@@ -16,6 +16,7 @@ makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc' 'git' 'uboot-tools' '
 options=('!strip')
 source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar.gz"
         '5.14.1-2.patch'
+        '5.14.2-3.patch'
         'd1d849cae12db71aa81ceedaedc1b17a34790367.patch'
         '2423aac2d6f5db55da99e11fd799ee66fe6f54c6.patch'
         'config'
@@ -49,6 +50,7 @@ source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar
         '0012-bootsplash.patch')
 sha256sums=('cc0fa4d8a3eb37a117e792aef62e85999b250295d1cfc1e34099c180debbb17f'
             '2bbf6e9c518fd4e15e9cc3a2ca593a34601fbb36de876ac069af701b9582e4e7'
+            'd45d7145d50bc84e11393b5da5ed3ea56e2afff11d6ee2723c7c06762cf252ef'
             '55df9f725c2dc5d166866a40538af1938a1cc16a91658b94c3b971227a6bb986'
             '87eef2393009a07cec8fab18eab2a74a3658534ce745c2c36389dd334cf6f416'
             'bee304a76cad3d2ec5f36b401161110d984f176971aaf0be988dbc70be6f3a82'
