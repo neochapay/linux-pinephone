@@ -7027,21 +7027,6 @@ index 2ba2d8d6b8e63..d1bcc52e67c35 100644
  
  	return ret;
  }
-diff --git a/drivers/power/supply/cw2015_battery.c b/drivers/power/supply/cw2015_battery.c
-index d110597746b0a..091868e9e9e82 100644
---- a/drivers/power/supply/cw2015_battery.c
-+++ b/drivers/power/supply/cw2015_battery.c
-@@ -679,7 +679,9 @@ static int cw_bat_probe(struct i2c_client *client)
- 						    &cw2015_bat_desc,
- 						    &psy_cfg);
- 	if (IS_ERR(cw_bat->rk_bat)) {
--		dev_err(cw_bat->dev, "Failed to register power supply\n");
-+		/* try again if this happens */
-+		dev_err_probe(&client->dev, PTR_ERR(cw_bat->rk_bat),
-+			"Failed to register power supply\n");
- 		return PTR_ERR(cw_bat->rk_bat);
- 	}
- 
 diff --git a/drivers/power/supply/max17042_battery.c b/drivers/power/supply/max17042_battery.c
 index ce2041b30a066..215e77d3b6d93 100644
 --- a/drivers/power/supply/max17042_battery.c
