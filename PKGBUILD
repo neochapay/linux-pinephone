@@ -17,6 +17,8 @@ options=('!strip')
 source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar.gz"
         'd1d849cae12db71aa81ceedaedc1b17a34790367.patch'
         '2423aac2d6f5db55da99e11fd799ee66fe6f54c6.patch'
+        # Fixes https://bugzilla.kernel.org/show_bug.cgi?id=214455
+        'net-qrtr-revert-check-in-qrtr_endpoint_post.patch::https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/patch/net/qrtr?id=d2cabd2dc8da78faf9b690ea521d03776686c9fe'
         'config'
         'linux.preset'
         '60-linux.hook'
@@ -49,6 +51,7 @@ source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar
 sha256sums=('73f26c341d07be05002670fab6ba2922b823f3df09187408125f420e6b8d684e'
             '55df9f725c2dc5d166866a40538af1938a1cc16a91658b94c3b971227a6bb986'
             '87eef2393009a07cec8fab18eab2a74a3658534ce745c2c36389dd334cf6f416'
+            '143d6361c596231051bffad1dcfbf66bca9ab19cfeeb30889d1030a7a668faa3'
             'bee304a76cad3d2ec5f36b401161110d984f176971aaf0be988dbc70be6f3a82'
             'f704a0e790a310f88b76bf5ae7200ef6f47fd6c68c0d2447de0f121cfc93c5ad'
             'ae2e95db94ef7176207c690224169594d49445e04249d2499e9d2fbc117a0b21'
