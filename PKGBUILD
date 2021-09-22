@@ -7,7 +7,7 @@ _tag="orange-pi-5.14-20210918-1954"
 _srcname=linux-${_tag}
 _kernelname=${pkgbase#linux}
 _desc="PinePhone kernel (Megi)"
-pkgver=5.14.6
+pkgver=5.14.7
 pkgrel=1
 arch=('aarch64')
 url="https://github.com/megous/linux/releases/tag/$_tag"
@@ -15,6 +15,8 @@ license=('GPL2')
 makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc' 'git' 'uboot-tools' 'dtc')
 options=('!strip')
 source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar.gz"
+        '5.14.6-7.patch'
+        # Pinephone Keyboard
         'd1d849cae12db71aa81ceedaedc1b17a34790367.patch'
         '2423aac2d6f5db55da99e11fd799ee66fe6f54c6.patch'
         # Fixes https://bugzilla.kernel.org/show_bug.cgi?id=214455
@@ -49,6 +51,7 @@ source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar
         '0011-bootsplash.patch'
         '0012-bootsplash.patch')
 sha256sums=('73f26c341d07be05002670fab6ba2922b823f3df09187408125f420e6b8d684e'
+            '9e90c79efa1ed330c9294164769e6c42c87739b5510b925653a73d5ae26bb86c'
             '55df9f725c2dc5d166866a40538af1938a1cc16a91658b94c3b971227a6bb986'
             '87eef2393009a07cec8fab18eab2a74a3658534ce745c2c36389dd334cf6f416'
             '143d6361c596231051bffad1dcfbf66bca9ab19cfeeb30889d1030a7a668faa3'
