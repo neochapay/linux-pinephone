@@ -12,7 +12,7 @@ pkgrel=2
 arch=('aarch64')
 url="https://github.com/megous/linux/releases/tag/$_tag"
 license=('GPL2')
-makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc' 'git' 'uboot-tools' 'dtc')
+makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc' 'git' 'uboot-tools' 'dtc' 'coreutils')
 options=('!strip')
 source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar.gz"
         # Pinephone Keyboard
@@ -251,8 +251,8 @@ _package-headers() {
   echo "Removing loose objects..."
   find "${_builddir}" -type f -name '*.o' -printf 'Removing %P\n' -delete
 
-  # Fix permissions
-  chmod -R u=rwX,go=rX "${_builddir}"
+  echo "Fix permissions"
+  chmod -Rv u=rwX,go=rX "${_builddir}"
 
   echo "Stripping build tools..."
   local _binary _strip
