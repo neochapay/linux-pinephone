@@ -195,21 +195,24 @@ _package() {
 
 _package-headers() {
   pkgdesc="Header files and scripts for building modules for linux kernel - ${_desc}"
-  provides=("linux-headers=${pkgver}" "linux-pinephone-headers=${pkgver}")
-  conflicts=('linux-headers' 'linux-pinephone-headers')
-  cd "${srcdir}/${_srcname}"
+  provides=("linux-headers=${pkgver}")
+  conflicts=('linux-headers')
+
+  cd linux-$_commit
   local _builddir="${pkgdir}/usr/lib/modules/${_kernver}/build"
 
-  install -Dt "${_builddir}" -m644 Makefile .config Module.symvers
+  echo "Installing build files..."
+  install -Dt "${_builddir}" -m644 Makefile .config Module.symvers System.map \
+    vmlinux
   install -Dt "${_builddir}/kernel" -m644 kernel/Makefile
 
   mkdir "${_builddir}/.tmp_versions"
 
+  echo "Installing headers..."
   cp -t "${_builddir}" -a include scripts
 
   install -Dt "${_builddir}/arch/${KARCH}" -m644 arch/${KARCH}/Makefile
   install -Dt "${_builddir}/arch/${KARCH}/kernel" -m644 arch/${KARCH}/kernel/asm-offsets.s
-  install -Dt "${_builddir}" -m644 vmlinux   
 
   cp -t "${_builddir}/arch/${KARCH}" -a arch/${KARCH}/include
   mkdir -p "${_builddir}/arch/arm"
@@ -229,43 +232,43 @@ _package-headers() {
   # add xfs and shmem for aufs building
   mkdir -p "${_builddir}"/{fs/xfs,mm}
 
-  # copy in Kconfig files
+  echo "Installing KConfig files..."
   find . -name Kconfig\* -exec install -Dm644 {} "${_builddir}/{}" \;
 
-  # remove unneeded architectures
+  echo "Removing unneeded architectures..."
   local _arch
   for _arch in "${_builddir}"/arch/*/; do
-    [[ ${_arch} == */${KARCH}/ || ${_arch} == */arm/ ]] && continue
+    [[ ${_arch} == */${KARCH}/ || ${_arch} == */arm/ || ${_arch} == */x86/ ]] && continue
     rm -r "${_arch}"
   done
 
-  # remove documentation files
+  echo "Removing documentation..."
   rm -r "${_builddir}/Documentation"
 
-  # remove now broken symlinks
+  echo "Removing broken symlinks..."
   find -L "${_builddir}" -type l -printf 'Removing %P\n' -delete
 
-  # strip scripts directory
-  local file
-  while read -rd '' file; do
-    case "$(file -bi "$file")" in
-      application/x-sharedlib\;*)      # Libraries (.so)
-        strip $STRIP_SHARED "$file" ;;
-      application/x-archive\;*)        # Libraries (.a)
-        strip $STRIP_STATIC "$file" ;;
-      application/x-executable\;*)     # Binaries
-        strip $STRIP_BINARIES "$file" ;;
-      application/x-pie-executable\;*) # Relocatable binaries
-        strip $STRIP_SHARED "$file" ;;
-    esac
-  done < <(find "${_builddir}" -type f -perm -u+x ! -name vmlinux -print0 2>/dev/null)
-  strip $STRIP_STATIC "${_builddir}/vmlinux"
-  
-  # remove unwanted files
-  find ${_builddir} -name '*.orig' -delete
+  echo "Removing loose objects..."
+  find "${_builddir}" -type f -name '*.o' -printf 'Removing %P\n' -delete
 
   # Fix permissions
-  chmod -R u=rwX,go=rX "${_builddir}" 
+  chmod -R u=rwX,go=rX "${_builddir}"
+
+  echo "Stripping build tools..."
+  local _binary _strip
+  while read -rd '' _binary; do
+    case "$(file -bi "${_binary}")" in
+      *application/x-sharedlib*)  _strip="${STRIP_SHARED}"     ;; # Libraries (.so)
+      *application/x-archive*)    _strip="${STRIP_STATIC}"     ;; # Libraries (.a)
+      *application/x-executable*) _strip="${STRIP_BINARIES}"   ;; # Binaries
+      *application/x-pie-executable*) _strip="${STRIP_SHARED}" ;;# Relocatable binaries
+      *) continue ;;
+    esac
+    strip ${_strip} "${_binary}"
+  done < <(find "${_builddir}/scripts" -type f -perm -u+w -print0 2>/dev/null)
+
+  echo "Stripping vmlinux..."
+  ${CROSS_COMPILE}strip -v ${STRIP_STATIC} "${_builddir}/vmlinux"
 }
 
 pkgname=("${pkgbase}" "${pkgbase}-headers")
