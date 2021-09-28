@@ -250,9 +250,13 @@ _package-headers() {
 
   echo "Removing loose objects..."
   find "${_builddir}" -type f -name '*.o' -printf 'Removing %P\n' -delete
+  
+  echo "Remove unwanted files..."
+  find ${_builddir} -name '*.orig' -printf 'Removing %P\n' -delete
 
   echo "Fix permissions"
-  chmod -Rv u=rwX,go=rX "${_builddir}"
+  find -P "${_builddir}" -type f -print | xargs chmod -v 0644
+  find -P "${_builddir}" -type d -print | xargs chmod -v 0755
 
   echo "Stripping build tools..."
   local _binary _strip
