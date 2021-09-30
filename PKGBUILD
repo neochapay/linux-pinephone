@@ -7,14 +7,15 @@ _tag="orange-pi-5.14-20210926-2029"
 _srcname=linux-${_tag}
 _kernelname=${pkgbase#linux}
 _desc="PinePhone kernel (Megi)"
-pkgver=5.14.8
-pkgrel=2
+pkgver=5.14.9
+pkgrel=1
 arch=('aarch64')
 url="https://github.com/megous/linux/releases/tag/$_tag"
 license=('GPL2')
 makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc' 'git' 'uboot-tools' 'dtc' 'coreutils')
 options=('!strip')
 source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar.gz"
+        '5.14.8-9.patch'
         # Pinephone Keyboard
         'd1d849cae12db71aa81ceedaedc1b17a34790367.patch'
         '2423aac2d6f5db55da99e11fd799ee66fe6f54c6.patch'
@@ -48,6 +49,7 @@ source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar
         '0011-bootsplash.patch'
         '0012-bootsplash.patch')
 sha256sums=('c45dadf3fab7ad19338abfc6218fa89d5d4624169672da502a79054465408d4a'
+            'ccfc2901a3b553ddbd619a23542f680c97168dc2551114ef80c2719e37eb1118'
             '55df9f725c2dc5d166866a40538af1938a1cc16a91658b94c3b971227a6bb986'
             '87eef2393009a07cec8fab18eab2a74a3658534ce745c2c36389dd334cf6f416'
             'bee304a76cad3d2ec5f36b401161110d984f176971aaf0be988dbc70be6f3a82'
@@ -238,7 +240,7 @@ _package-headers() {
   echo "Removing unneeded architectures..."
   local _arch
   for _arch in "${_builddir}"/arch/*/; do
-    [[ ${_arch} == */${KARCH}/ || ${_arch} == */arm/ || ${_arch} == */x86/ ]] && continue
+    [[ ${_arch} == */${KARCH}/ || ${_arch} == */arm/ ]] && continue
     rm -r "${_arch}"
   done
 
@@ -262,10 +264,10 @@ _package-headers() {
   local _binary _strip
   while read -rd '' _binary; do
     case "$(file -bi "${_binary}")" in
-      *application/x-sharedlib*)  _strip="${STRIP_SHARED}"     ;; # Libraries (.so)
-      *application/x-archive*)    _strip="${STRIP_STATIC}"     ;; # Libraries (.a)
-      *application/x-executable*) _strip="${STRIP_BINARIES}"   ;; # Binaries
-      *application/x-pie-executable*) _strip="${STRIP_SHARED}" ;;# Relocatable binaries
+      *application/x-sharedlib*)      _strip="${STRIP_SHARED}"   ;; # Libraries (.so)
+      *application/x-archive*)        _strip="${STRIP_STATIC}"   ;; # Libraries (.a)
+      *application/x-executable*)     _strip="${STRIP_BINARIES}" ;; # Binaries
+      *application/x-pie-executable*) _strip="${STRIP_SHARED}"   ;; # Relocatable binaries
       *) continue ;;
     esac
     strip ${_strip} "${_binary}"
