@@ -8,7 +8,7 @@ _srcname=linux-${_tag}
 _kernelname=${pkgbase#linux}
 _desc="PinePhone kernel (Megi)"
 pkgver=5.14.9
-pkgrel=6
+pkgrel=7
 arch=('aarch64')
 url="https://github.com/megous/linux/releases/tag/$_tag"
 license=('GPL2')
@@ -16,11 +16,11 @@ makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc' 'git' 'uboot-tools' '
 options=('!strip')
 source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar.gz"
         # https://invent.kde.org/teams/plasma-mobile/issues/-/issues/3
-        0001-drivers-usb-add-reset_resume-callback.patch
-        0002-Revert-usb-quirks-Add-USB_QUIRK_RESET-for-Quectel-EG.patch
-        0003-qmi_wwan-provide-wrapper-for-reset_resume.patch
-        0004-cdc-wdm-provide-wrapper-for-reset_resume.patch
-        0005-net-usb-qmi_wwan-set-the-DTR-when-resuming.patch
+        #0001-drivers-usb-add-reset_resume-callback.patch
+        #0002-Revert-usb-quirks-Add-USB_QUIRK_RESET-for-Quectel-EG.patch
+        #0003-qmi_wwan-provide-wrapper-for-reset_resume.patch
+        #0004-cdc-wdm-provide-wrapper-for-reset_resume.patch
+        #0005-net-usb-qmi_wwan-set-the-DTR-when-resuming.patch
         ccu-sun50i-a64-reparent-clocks-to-lower-speed-oscillator.patch
         # Pinephone Keyboard
         'd1d849cae12db71aa81ceedaedc1b17a34790367.patch'
@@ -55,11 +55,6 @@ source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar
         '0011-bootsplash.patch'
         '0012-bootsplash.patch')
 sha256sums=('2daa98f373757e9e692193462ef6818af6c18691da20afbebd43c70fc8c1d486'
-            '864c603844edd45cfcb6fd2f03d7afe67db6fb76a6b7b5c6367c3edda57aec29'
-            'efed25905f7ad14d02488aec57b432762f9a5bd2ad0392119c59245bd8aaaabb'
-            '146e3c6632d55667c9658c4ddbbe3686dc20f5768fd041f3f9a45b7748d33f84'
-            '9e031513134c6d145cdd2df51acdd95c1a686a7bd95cd24b84e2ecb6eda302dd'
-            '523c7aa1e675567965c574bc8d9b9a9138eb07afee2533ebc15a7fd7c6fe57f6'
             '9b029621fb9c330017e5dddfd695d1da1329ca39584db4a5d2f9fcbcb5568f4b'
             '55df9f725c2dc5d166866a40538af1938a1cc16a91658b94c3b971227a6bb986'
             '87eef2393009a07cec8fab18eab2a74a3658534ce745c2c36389dd334cf6f416'
