@@ -15,8 +15,7 @@ license=('GPL2')
 makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc' 'git' 'uboot-tools' 'dtc' 'coreutils')
 options=('!strip')
 source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar.gz"
-        ccu-sun50i-a64-reparent-clocks-to-lower-speed-oscillator.patch
-        #drivers-usb-hub-delay-resume.patch
+        # https://invent.kde.org/teams/plasma-mobile/issues/-/issues/3
         0001-drivers-usb-add-reset_resume-callback.patch
         0002-Revert-usb-quirks-Add-USB_QUIRK_RESET-for-Quectel-EG.patch
         0003-qmi_wwan-provide-wrapper-for-reset_resume.patch
@@ -56,7 +55,6 @@ source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar
         '0011-bootsplash.patch'
         '0012-bootsplash.patch')
 sha256sums=('2daa98f373757e9e692193462ef6818af6c18691da20afbebd43c70fc8c1d486'
-            '9b029621fb9c330017e5dddfd695d1da1329ca39584db4a5d2f9fcbcb5568f4b'
             '864c603844edd45cfcb6fd2f03d7afe67db6fb76a6b7b5c6367c3edda57aec29'
             'efed25905f7ad14d02488aec57b432762f9a5bd2ad0392119c59245bd8aaaabb'
             '146e3c6632d55667c9658c4ddbbe3686dc20f5768fd041f3f9a45b7748d33f84'
