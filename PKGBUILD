@@ -8,7 +8,7 @@ _srcname=linux-${_tag}
 _kernelname=${pkgbase#linux}
 _desc="PinePhone kernel (Megi)"
 pkgver=5.14.9
-pkgrel=4
+pkgrel=5
 arch=('aarch64')
 url="https://github.com/megous/linux/releases/tag/$_tag"
 license=('GPL2')
@@ -16,6 +16,7 @@ makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc' 'git' 'uboot-tools' '
 options=('!strip')
 source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar.gz"
         ccu-sun50i-a64-reparent-clocks-to-lower-speed-oscillator.patch
+        drivers-usb-hub-delay-resume.patch
         # Pinephone Keyboard
         'd1d849cae12db71aa81ceedaedc1b17a34790367.patch'
         '2423aac2d6f5db55da99e11fd799ee66fe6f54c6.patch'
@@ -50,6 +51,7 @@ source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar
         '0012-bootsplash.patch')
 sha256sums=('2daa98f373757e9e692193462ef6818af6c18691da20afbebd43c70fc8c1d486'
             '9b029621fb9c330017e5dddfd695d1da1329ca39584db4a5d2f9fcbcb5568f4b'
+            'a42de209235ad2c60a1c409bbb3a819469de05bbc638218c508a9b2e5d74d161'
             '55df9f725c2dc5d166866a40538af1938a1cc16a91658b94c3b971227a6bb986'
             '87eef2393009a07cec8fab18eab2a74a3658534ce745c2c36389dd334cf6f416'
             'bdeaba066df80028198831b955f8c13e5c3f7b37037cc18418447df4c707ebe0'
