@@ -21,7 +21,6 @@ source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar
         0003-qmi_wwan-provide-wrapper-for-reset_resume.patch
         0004-cdc-wdm-provide-wrapper-for-reset_resume.patch
         0005-net-usb-qmi_wwan-set-the-DTR-when-resuming.patch
-        0006-cdc-wdm-send-HUP-if-we-are-resetting.patch
         ccu-sun50i-a64-reparent-clocks-to-lower-speed-oscillator.patch
         # Pinephone Keyboard
         'd1d849cae12db71aa81ceedaedc1b17a34790367.patch'
@@ -61,7 +60,6 @@ sha256sums=('2daa98f373757e9e692193462ef6818af6c18691da20afbebd43c70fc8c1d486'
             '146e3c6632d55667c9658c4ddbbe3686dc20f5768fd041f3f9a45b7748d33f84'
             '9e031513134c6d145cdd2df51acdd95c1a686a7bd95cd24b84e2ecb6eda302dd'
             '523c7aa1e675567965c574bc8d9b9a9138eb07afee2533ebc15a7fd7c6fe57f6'
-            '9bbf1587c425fabd56936ebb5c06f1ec1fabcec24a07209070ef9a512ea7eb9f'
             '9b029621fb9c330017e5dddfd695d1da1329ca39584db4a5d2f9fcbcb5568f4b'
             '55df9f725c2dc5d166866a40538af1938a1cc16a91658b94c3b971227a6bb986'
             '87eef2393009a07cec8fab18eab2a74a3658534ce745c2c36389dd334cf6f416'
