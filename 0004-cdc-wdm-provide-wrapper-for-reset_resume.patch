@@ -34,7 +34,7 @@ index 508b1c3f8b731..2b9355ed4a2ad 100644
 +	wake_up_all(&desc->wait);
 +	mutex_lock(&desc->rlock);
 +	mutex_lock(&desc->wlock);
-+	kill_urbs(desc);
++	poison_urbs(desc);
 +	cancel_work_sync(&desc->rxwork);
 +	cancel_work_sync(&desc->service_outs_intr);
 +
