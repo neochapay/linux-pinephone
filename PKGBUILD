@@ -3,11 +3,11 @@
 # Maintainer: Philip Müller <philm@manjaro.org>
 
 pkgbase=linux-pinephone
-_tag="orange-pi-5.14-20211001-0120"
+_tag="orange-pi-5.14-20211007-1441"
 _srcname=linux-${_tag}
 _kernelname=${pkgbase#linux}
 _desc="PinePhone kernel (Megi)"
-pkgver=5.14.10
+pkgver=5.14.11
 pkgrel=1
 arch=('aarch64')
 url="https://github.com/megous/linux/releases/tag/$_tag"
@@ -15,7 +15,7 @@ license=('GPL2')
 makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc' 'git' 'uboot-tools' 'dtc' 'coreutils')
 options=('!strip')
 source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar.gz"
-        5.14.9-10.patch
+        5.14.10-11.patch
         # https://invent.kde.org/teams/plasma-mobile/issues/-/issues/3
         #0001-drivers-usb-add-reset_resume-callback.patch
         #0002-Revert-usb-quirks-Add-USB_QUIRK_RESET-for-Quectel-EG.patch
@@ -55,8 +55,8 @@ source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar
         '0010-bootsplash.patch'
         '0011-bootsplash.patch'
         '0012-bootsplash.patch')
-sha256sums=('2daa98f373757e9e692193462ef6818af6c18691da20afbebd43c70fc8c1d486'
-            'c6384eb23e9d2bcc1f8dee283a08b1a267b7db33aabba896c0e81d7ec1120a80'
+sha256sums=('b67fe2674ebda7f4b1bebc7aa13a7b67093174a2dcb2342554e4b83c30d66b89'
+            '317cd37d3f99beadbd6d5b34bde6aea4687cd33681798cca56549bffc025855b'
             '9b029621fb9c330017e5dddfd695d1da1329ca39584db4a5d2f9fcbcb5568f4b'
             '55df9f725c2dc5d166866a40538af1938a1cc16a91658b94c3b971227a6bb986'
             '87eef2393009a07cec8fab18eab2a74a3658534ce745c2c36389dd334cf6f416'
