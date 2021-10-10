@@ -3,11 +3,11 @@
 # Maintainer: Philip Müller <philm@manjaro.org>
 
 pkgbase=linux-pinephone
-_tag="orange-pi-5.14-20211007-1441"
+_tag="a0973091a726fad6931f44c7d1fd07f0dc24c3f4"
 _srcname=linux-${_tag}
 _kernelname=${pkgbase#linux}
 _desc="PinePhone kernel (Megi)"
-pkgver=5.14.11
+pkgver=5.15rc4
 pkgrel=1
 arch=('aarch64')
 url="https://github.com/megous/linux/releases/tag/$_tag"
@@ -15,7 +15,6 @@ license=('GPL2')
 makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc' 'git' 'uboot-tools' 'dtc' 'coreutils')
 options=('!strip')
 source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar.gz"
-        5.14.10-11.patch
         # https://invent.kde.org/teams/plasma-mobile/issues/-/issues/3
         #0001-drivers-usb-add-reset_resume-callback.patch
         #0002-Revert-usb-quirks-Add-USB_QUIRK_RESET-for-Quectel-EG.patch
@@ -30,13 +29,8 @@ source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar
         'linux.preset'
         '60-linux.hook'
         '90-linux.hook'
-        'enable-hdmi-output-pinetab.patch'
-        'enable-jack-detection-pinetab.patch'
-        'pinetab-bluetooth.patch'
-        'pinetab-accelerometer.patch'
         'dts-pinephone-drop-modem-power-node.patch'
-        'media-ov5640-Implement-autofocus.patch'
-        '0011-dts-pinetab-hardcode-mmc-numbers.patch'     
+        'media-ov5640-Implement-autofocus.patch'    
         '0107-quirk-kernel-org-bug-210681-firmware_rome_error.patch'
         '0177-leds-gpio-make-max_brightness-configurable.patch'
         'panic-led.patch'
@@ -55,8 +49,7 @@ source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar
         '0010-bootsplash.patch'
         '0011-bootsplash.patch'
         '0012-bootsplash.patch')
-sha256sums=('b67fe2674ebda7f4b1bebc7aa13a7b67093174a2dcb2342554e4b83c30d66b89'
-            '317cd37d3f99beadbd6d5b34bde6aea4687cd33681798cca56549bffc025855b'
+sha256sums=('f3aa95678f8308aa8352b5267766524d0d5cb0c98a1011c323e438aa29221bd8'
             '9b029621fb9c330017e5dddfd695d1da1329ca39584db4a5d2f9fcbcb5568f4b'
             '55df9f725c2dc5d166866a40538af1938a1cc16a91658b94c3b971227a6bb986'
             '87eef2393009a07cec8fab18eab2a74a3658534ce745c2c36389dd334cf6f416'
@@ -64,13 +57,8 @@ sha256sums=('b67fe2674ebda7f4b1bebc7aa13a7b67093174a2dcb2342554e4b83c30d66b89'
             'f704a0e790a310f88b76bf5ae7200ef6f47fd6c68c0d2447de0f121cfc93c5ad'
             'ae2e95db94ef7176207c690224169594d49445e04249d2499e9d2fbc117a0b21'
             '71df1b18a3885b151a3b9d926a91936da2acc90d5e27f1ad326745779cd3759d'
-            'a3b98f1c514dfbc563691e502ceeb05f734aadb7ea3af0e0d2866cb515548529'
-            '1ef1c44720798f5e7dcd57ec066e11cb0d4c4db673efcb74b2239534add9564c'
-            'dc4048106a515b3deb43c9de47674d0c99028336723e71d5df2a3897352df524'
-            '0e6453bf258c34349e5cc76811d804392aaa1ef9230c343719879682aaff7515'
             '1dc72e9f4c74447555053d0146edc58076067827a7bbe67da5e979d493168484'
             'f88f9837ccbd76cae6d116f4dce40f9977e894241a668a7c0e3938021e9cc6f2'
-            'd65be979c90421fe1d581d8bd7c01402bf5716b7529fee7fe0700afc4e71a268'
             '5e804e1f241ce542f3f0e83d274ede6aa4b0539e510fb9376f8106e8732ce69b'
             'f34385a6e064583cfdf6fe660b2acf45828a009c047c933a8e7a6c5147ba9df7'
             '29ab48c207ccf90262596397026d3a20c7b7032833b17d6c77d7226db57e6914'
