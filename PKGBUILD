@@ -3,11 +3,11 @@
 # Maintainer: Philip Müller <philm@manjaro.org>
 
 pkgbase=linux-pinephone
-_tag="a0973091a726fad6931f44c7d1fd07f0dc24c3f4"
+_tag="orange-pi-5.15-20211018-0424"
 _srcname=linux-${_tag}
 _kernelname=${pkgbase#linux}
-_desc="PinePhone kernel (Megi)"
-pkgver=5.15rc4
+_desc="PinePhone (Pro) Kernel (Megi)"
+pkgver=5.15rc6
 pkgrel=1
 arch=('aarch64')
 url="https://github.com/megous/linux/releases/tag/$_tag"
@@ -15,12 +15,6 @@ license=('GPL2')
 makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc' 'git' 'uboot-tools' 'dtc' 'coreutils')
 options=('!strip')
 source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar.gz"
-        # https://invent.kde.org/teams/plasma-mobile/issues/-/issues/3
-        #0001-drivers-usb-add-reset_resume-callback.patch
-        #0002-Revert-usb-quirks-Add-USB_QUIRK_RESET-for-Quectel-EG.patch
-        #0003-qmi_wwan-provide-wrapper-for-reset_resume.patch
-        #0004-cdc-wdm-provide-wrapper-for-reset_resume.patch
-        #0005-net-usb-qmi_wwan-set-the-DTR-when-resuming.patch
         ccu-sun50i-a64-reparent-clocks-to-lower-speed-oscillator.patch
         # Pinephone Keyboard
         'd1d849cae12db71aa81ceedaedc1b17a34790367.patch'
@@ -49,11 +43,11 @@ source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar
         '0010-bootsplash.patch'
         '0011-bootsplash.patch'
         '0012-bootsplash.patch')
-sha256sums=('f3aa95678f8308aa8352b5267766524d0d5cb0c98a1011c323e438aa29221bd8'
+sha256sums=('7248529cae2ac8339bfd9c4eac8a92481148b189cce7cf3c4f76a111796eae17'
             '9b029621fb9c330017e5dddfd695d1da1329ca39584db4a5d2f9fcbcb5568f4b'
             '55df9f725c2dc5d166866a40538af1938a1cc16a91658b94c3b971227a6bb986'
             '87eef2393009a07cec8fab18eab2a74a3658534ce745c2c36389dd334cf6f416'
-            'bdeaba066df80028198831b955f8c13e5c3f7b37037cc18418447df4c707ebe0'
+            '2b4f9d06cd95a30eaf69cac64dc62cbd2830b7bca26599ffd89e15ce10675ad7'
             'f704a0e790a310f88b76bf5ae7200ef6f47fd6c68c0d2447de0f121cfc93c5ad'
             'ae2e95db94ef7176207c690224169594d49445e04249d2499e9d2fbc117a0b21'
             '71df1b18a3885b151a3b9d926a91936da2acc90d5e27f1ad326745779cd3759d'
