@@ -7,7 +7,7 @@ _tag="orange-pi-5.15-20211018-0424"
 _srcname=linux-${_tag}
 _kernelname=${pkgbase#linux}
 _desc="PinePhone (Pro) Kernel (Megi)"
-pkgver=5.15rc6
+pkgver=5.15rc5
 pkgrel=1
 arch=('aarch64')
 url="https://github.com/megous/linux/releases/tag/$_tag"
@@ -47,7 +47,7 @@ sha256sums=('7248529cae2ac8339bfd9c4eac8a92481148b189cce7cf3c4f76a111796eae17'
             '9b029621fb9c330017e5dddfd695d1da1329ca39584db4a5d2f9fcbcb5568f4b'
             '55df9f725c2dc5d166866a40538af1938a1cc16a91658b94c3b971227a6bb986'
             '87eef2393009a07cec8fab18eab2a74a3658534ce745c2c36389dd334cf6f416'
-            'c630300a6dd1b9d0f51a41657b6c7f782de07fe7bb9ed4d8591d446cb40e8ae8'
+            '5d8be8c85d4010da4f00ff81dfae70dbea46a4d390b611bc5c6d7756edd6bb43'
             'f704a0e790a310f88b76bf5ae7200ef6f47fd6c68c0d2447de0f121cfc93c5ad'
             'ae2e95db94ef7176207c690224169594d49445e04249d2499e9d2fbc117a0b21'
             '71df1b18a3885b151a3b9d926a91936da2acc90d5e27f1ad326745779cd3759d'
