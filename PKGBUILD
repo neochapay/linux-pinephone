@@ -16,6 +16,7 @@ makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc' 'git' 'uboot-tools' '
 options=('!strip')
 source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar.gz"
         ccu-sun50i-a64-reparent-clocks-to-lower-speed-oscillator.patch
+        revert-debug-symbols-rk3399dtsi.patch
         # Pinephone Keyboard
         'd1d849cae12db71aa81ceedaedc1b17a34790367.patch'
         '2423aac2d6f5db55da99e11fd799ee66fe6f54c6.patch'
@@ -45,6 +46,7 @@ source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar
         '0012-bootsplash.patch')
 sha256sums=('7248529cae2ac8339bfd9c4eac8a92481148b189cce7cf3c4f76a111796eae17'
             '9b029621fb9c330017e5dddfd695d1da1329ca39584db4a5d2f9fcbcb5568f4b'
+            '43ee1db6332c1cc170fb26891ecddf2c0b603ab94aa76c09a4b99badf3468750'
             '55df9f725c2dc5d166866a40538af1938a1cc16a91658b94c3b971227a6bb986'
             '87eef2393009a07cec8fab18eab2a74a3658534ce745c2c36389dd334cf6f416'
             '5714fe28804c3795cbe3096dc2959bdbbce5f66f9bf4cc3608347e50819cad48'
