@@ -3,11 +3,11 @@
 # Maintainer: Philip Müller <philm@manjaro.org>
 
 pkgbase=linux-pinephone
-_tag="orange-pi-5.15-20211018-0424"
+_tag="orange-pi-5.15-20211026-0139"
 _srcname=linux-${_tag}
 _kernelname=${pkgbase#linux}
-_desc="PinePhone (Pro) Kernel (Megi)"
-pkgver=5.15rc5
+_desc="PinePhone Kernel (Megi)"
+pkgver=5.15rc7
 pkgrel=1
 arch=('aarch64')
 url="https://github.com/megous/linux/releases/tag/$_tag"
@@ -16,7 +16,6 @@ makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc' 'git' 'uboot-tools' '
 options=('!strip')
 source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar.gz"
         ccu-sun50i-a64-reparent-clocks-to-lower-speed-oscillator.patch
-        revert-debug-symbols-rk3399dtsi.patch
         # Pinephone Keyboard
         'd1d849cae12db71aa81ceedaedc1b17a34790367.patch'
         '2423aac2d6f5db55da99e11fd799ee66fe6f54c6.patch'
@@ -44,12 +43,11 @@ source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar
         '0010-bootsplash.patch'
         '0011-bootsplash.patch'
         '0012-bootsplash.patch')
-sha256sums=('7248529cae2ac8339bfd9c4eac8a92481148b189cce7cf3c4f76a111796eae17'
+sha256sums=('e95c6a9cea952f91aad07385875acd4579569272021013a6d03bb982a63dc55d'
             '9b029621fb9c330017e5dddfd695d1da1329ca39584db4a5d2f9fcbcb5568f4b'
-            '43ee1db6332c1cc170fb26891ecddf2c0b603ab94aa76c09a4b99badf3468750'
             '55df9f725c2dc5d166866a40538af1938a1cc16a91658b94c3b971227a6bb986'
             '87eef2393009a07cec8fab18eab2a74a3658534ce745c2c36389dd334cf6f416'
-            '5714fe28804c3795cbe3096dc2959bdbbce5f66f9bf4cc3608347e50819cad48'
+            'cba56bf2cd9276adfd941bc47aeacde70acc68aa7cee5fe856e6b2a6dce4af64'
             'f704a0e790a310f88b76bf5ae7200ef6f47fd6c68c0d2447de0f121cfc93c5ad'
             'ae2e95db94ef7176207c690224169594d49445e04249d2499e9d2fbc117a0b21'
             '71df1b18a3885b151a3b9d926a91936da2acc90d5e27f1ad326745779cd3759d'
