@@ -134,8 +134,7 @@ _package() {
   optdepends=('crda: to set the correct wireless channels of your country'
               'rtl8723bt-firmware-megi: for Pinephone Bluetooth'
               'ov5640-firmware: for Pinephone Camera'
-              'uboot-pinephone: Firmware for Pinephone'
-              'uboot-pinephonepro: Firmware for Pinephone Pro')
+              'uboot-pinephone: Firmware for Pinephone')
   provides=('kernel26' "linux=${pkgver}")
   replaces=('linux-armv8-rc')
   conflicts=('linux')
