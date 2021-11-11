@@ -8,7 +8,7 @@ _srcname=linux-${_tag}
 _kernelname=${pkgbase#linux}
 _desc="PinePhone Kernel (Megi)"
 pkgver=5.15.1
-pkgrel=1
+pkgrel=2
 arch=('aarch64')
 url="https://github.com/megous/linux/releases/tag/$_tag"
 license=('GPL2')
@@ -132,7 +132,8 @@ build() {
 
 _package() {
   pkgdesc="The Linux Kernel and modules - ${_desc}"
-  depends=('coreutils' 'linux-firmware' 'kmod' 'mkinitcpio>=0.7')
+  depends=('coreutils' 'kmod' 'mkinitcpio>=0.7'
+           'rtl8723bt-firmware' 'anx7688-firmware' 'ov5640-firmware')
   optdepends=('crda: to set the correct wireless channels of your country'
               'rtl8723bt-firmware-megi: for Pinephone Bluetooth'
               'ov5640-firmware: for Pinephone Camera'
