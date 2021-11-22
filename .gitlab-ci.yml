@@ -25,6 +25,7 @@ build-package:
     - bigbuilds
     - aarch64
     - fosshost
+    - xlarge
   script:
     # build pkg via chrootbuild
     - export PKG=${PWD##*/}
