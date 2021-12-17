@@ -466,21 +466,6 @@ index 731d5117f9f10..14389fd7afb89 100644
  
  	if (IS_ERR(priv->hwmon_dev)) {
  		ret = PTR_ERR(priv->hwmon_dev);
-diff --git a/drivers/i2c/busses/i2c-rk3x.c b/drivers/i2c/busses/i2c-rk3x.c
-index 819ab4ee517e1..02ddb237f69af 100644
---- a/drivers/i2c/busses/i2c-rk3x.c
-+++ b/drivers/i2c/busses/i2c-rk3x.c
-@@ -423,8 +423,8 @@ static void rk3x_i2c_handle_read(struct rk3x_i2c *i2c, unsigned int ipd)
- 	if (!(ipd & REG_INT_MBRF))
- 		return;
- 
--	/* ack interrupt */
--	i2c_writel(i2c, REG_INT_MBRF, REG_IPD);
-+	/* ack interrupt (read also produces a spurious START flag, clear it too) */
-+	i2c_writel(i2c, REG_INT_MBRF | REG_INT_START, REG_IPD);
- 
- 	/* Can only handle a maximum of 32 bytes at a time */
- 	if (len > 32)
 diff --git a/drivers/i2c/busses/i2c-virtio.c b/drivers/i2c/busses/i2c-virtio.c
 index 7b2474e6876f4..5cb21d7da05b6 100644
 --- a/drivers/i2c/busses/i2c-virtio.c
