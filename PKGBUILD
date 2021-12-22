@@ -7,7 +7,7 @@ _tag="orange-pi-5.15-20211125-1352"
 _srcname=linux-${_tag}
 _kernelname=${pkgbase#linux}
 _desc="PinePhone Kernel (Megi)"
-pkgver=5.15.10
+pkgver=5.15.11
 pkgrel=1
 arch=('aarch64')
 url="https://github.com/megous/linux/releases/tag/$_tag"
@@ -20,6 +20,7 @@ source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar
         5.15.7-8.patch
         5.15.8-9.patch
         5.15.9-10.patch
+        5.15.10-11.patch
         ccu-sun50i-a64-reparent-clocks-to-lower-speed-oscillator.patch
         # Pinephone Keyboard
         'd1d849cae12db71aa81ceedaedc1b17a34790367.patch'
@@ -54,6 +55,7 @@ sha256sums=('c04c3b945270487bc78a06b07f97b43eeb3cc8662f7722dfcd230288cbf393d3'
             '8cfed2cb775be4832957b011ed6dae73723cb58f6d5fcef0e6249ab8a2aeebe2'
             'ca07b3bb5d97736e0fbc3e1ffa7467d4195095e933606d1c415207313b0ec95e'
             '896540374af741345f8e0e9c666ac509a1cc11132d247e481d5b6576f55a9221'
+            '675f3ab458b106c3c19a8eadcb6f34bc11a4b8502a896e5b68a0faeb6d1a5c22'
             '9b029621fb9c330017e5dddfd695d1da1329ca39584db4a5d2f9fcbcb5568f4b'
             '55df9f725c2dc5d166866a40538af1938a1cc16a91658b94c3b971227a6bb986'
             '87eef2393009a07cec8fab18eab2a74a3658534ce745c2c36389dd334cf6f416'
