@@ -3,11 +3,11 @@
 # Maintainer: Philip Müller <philm@manjaro.org>
 
 pkgbase=linux-pinephone
-_tag="orange-pi-5.15-20211125-1352"
+_tag="orange-pi-5.16-20220110-0757"
 _srcname=linux-${_tag}
 _kernelname=${pkgbase#linux}
 _desc="PinePhone Kernel (Megi)"
-pkgver=5.15.13
+pkgver=5.16.0
 pkgrel=1
 arch=('aarch64')
 url="https://github.com/megous/linux/releases/tag/$_tag"
@@ -15,14 +15,6 @@ license=('GPL2')
 makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc' 'git' 'uboot-tools' 'dtc' 'coreutils')
 options=('!strip')
 source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar.gz"
-        5.15.5-6.patch
-        5.15.6-7.patch
-        5.15.7-8.patch
-        5.15.8-9.patch
-        5.15.9-10.patch
-        5.15.10-11.patch
-        5.15.11-12.patch
-        5.15.12-13.patch
         ccu-sun50i-a64-reparent-clocks-to-lower-speed-oscillator.patch
         # Pinephone Keyboard
         'd1d849cae12db71aa81ceedaedc1b17a34790367.patch'
@@ -36,9 +28,10 @@ source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar
         '0107-quirk-kernel-org-bug-210681-firmware_rome_error.patch'
         '0177-leds-gpio-make-max_brightness-configurable.patch'
         'panic-led.patch'
-        '0001-revert-fbcon-remove-now-unusued-softback_lines-cursor-argument.patch'
-        '0002-revert-fbcon-remove-no-op-fbcon_set_origin.patch'
-        '0003-revert-fbcon-remove-soft-scrollback-code.patch'
+        '0001-revert-garbage-collect-fbdev-scrolling-acceleration.patch'
+        '0002-revert-fbcon-remove-now-unusued-softback_lines-cursor-argument.patch'
+        '0003-revert-fbcon-remove-no-op-fbcon_set_origin.patch'
+        '0004-revert-fbcon-remove-soft-scrollback-code.patch'
         '0001-bootsplash.patch'
         '0002-bootsplash.patch'
         '0003-bootsplash.patch'
@@ -51,15 +44,7 @@ source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar
         '0010-bootsplash.patch'
         '0011-bootsplash.patch'
         '0012-bootsplash.patch')
-sha256sums=('c04c3b945270487bc78a06b07f97b43eeb3cc8662f7722dfcd230288cbf393d3'
-            'c30152ec4586df5290a5168ca864f8e56a2eeb1cc51518590f25b81d95ba646c'
-            '867456662012a93c522a5a128b6da507d1420a973920f358cc73f99c2dfc9e9c'
-            '8cfed2cb775be4832957b011ed6dae73723cb58f6d5fcef0e6249ab8a2aeebe2'
-            'ca07b3bb5d97736e0fbc3e1ffa7467d4195095e933606d1c415207313b0ec95e'
-            '896540374af741345f8e0e9c666ac509a1cc11132d247e481d5b6576f55a9221'
-            '675f3ab458b106c3c19a8eadcb6f34bc11a4b8502a896e5b68a0faeb6d1a5c22'
-            '1fcebc8015d551f5840e69d6f9aebeaf85cbf70c0f34c50ef3e2e2714df2e5ac'
-            '236a27791d16cb8cc7d20f73e993adb39472e85a356e8132adc474a4bada9056'
+sha256sums=('bd6ba7f37c62e3e195d44dbd5ee68ee6d63cf4b00c3135446f0cb55fea49d42e'
             '9b029621fb9c330017e5dddfd695d1da1329ca39584db4a5d2f9fcbcb5568f4b'
             '55df9f725c2dc5d166866a40538af1938a1cc16a91658b94c3b971227a6bb986'
             '87eef2393009a07cec8fab18eab2a74a3658534ce745c2c36389dd334cf6f416'
@@ -72,6 +57,7 @@ sha256sums=('c04c3b945270487bc78a06b07f97b43eeb3cc8662f7722dfcd230288cbf393d3'
             '5e804e1f241ce542f3f0e83d274ede6aa4b0539e510fb9376f8106e8732ce69b'
             'f34385a6e064583cfdf6fe660b2acf45828a009c047c933a8e7a6c5147ba9df7'
             '29ab48c207ccf90262596397026d3a20c7b7032833b17d6c77d7226db57e6914'
+            '365d4225a7db60bd064ebbc34ce0ae582a0c378ad6c4cec7960a5ae4641a6757'
             'ddf1e7fc55cc6fe81ecfcac84112e573ca95713c027bc84d69cf880812fd6ff3'
             '94a8538251ad148f1025cc3de446ce64f73dc32b01815426fb159c722e8fa5bc'
             '1f18c5c10a3c63e41ecd05ad34cd9f6653ba96e9f1049ce2b7bb6da2578ae710'
