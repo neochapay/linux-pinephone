@@ -11,7 +11,7 @@ index 149cfde817cb..0399d8714fd0 100644
  	/* Force the pll-audio variable divider to 3 */
  	val = readl(reg + SUN50I_A64_PLL_AUDIO_REG);
  	val &= ~GENMASK(19, 16);
-@@ -974,11 +976,35 @@ static const struct of_device_id sun50i_a64_ccu_ids[] = {
+@@ -1031,12 +1031,36 @@ static const struct of_device_id sun50i_
  	{ }
  };
  
@@ -42,6 +42,7 @@ index 149cfde817cb..0399d8714fd0 100644
  	.probe	= sun50i_a64_ccu_probe,
  	.driver	= {
  		.name	= "sun50i-a64-ccu",
+ 		.suppress_bind_attrs = true,
  		.of_match_table	= sun50i_a64_ccu_ids,
 +		.pm	= &sun50i_a64_ccu_pm_ops,
  	},

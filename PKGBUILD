@@ -45,7 +45,7 @@ source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar
         '0011-bootsplash.patch'
         '0012-bootsplash.patch')
 sha256sums=('bd6ba7f37c62e3e195d44dbd5ee68ee6d63cf4b00c3135446f0cb55fea49d42e'
-            '9b029621fb9c330017e5dddfd695d1da1329ca39584db4a5d2f9fcbcb5568f4b'
+            '91a43647c446c0792eec25efea265b14230b1bf1681be282b40862903ae98731'
             '55df9f725c2dc5d166866a40538af1938a1cc16a91658b94c3b971227a6bb986'
             '87eef2393009a07cec8fab18eab2a74a3658534ce745c2c36389dd334cf6f416'
             '2c5eef62bbfd7972250028151c8a8ce8648f0b415c4469acb362797c8edab397'
