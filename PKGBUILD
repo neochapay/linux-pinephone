@@ -8,7 +8,7 @@ _srcname=linux-${_tag}
 _kernelname=${pkgbase#linux}
 _desc="PinePhone Kernel (Megi)"
 pkgver=5.16.0
-pkgrel=1
+pkgrel=2
 arch=('aarch64')
 url="https://github.com/megous/linux/releases/tag/$_tag"
 license=('GPL2')
@@ -48,7 +48,7 @@ sha256sums=('bd6ba7f37c62e3e195d44dbd5ee68ee6d63cf4b00c3135446f0cb55fea49d42e'
             '91a43647c446c0792eec25efea265b14230b1bf1681be282b40862903ae98731'
             '55df9f725c2dc5d166866a40538af1938a1cc16a91658b94c3b971227a6bb986'
             '87eef2393009a07cec8fab18eab2a74a3658534ce745c2c36389dd334cf6f416'
-            '2c5eef62bbfd7972250028151c8a8ce8648f0b415c4469acb362797c8edab397'
+            '37a812242580130f8f33d780a5c9897fddf49410def9a3a64cfcbff58c93ef15'
             'f704a0e790a310f88b76bf5ae7200ef6f47fd6c68c0d2447de0f121cfc93c5ad'
             'ae2e95db94ef7176207c690224169594d49445e04249d2499e9d2fbc117a0b21'
             '71df1b18a3885b151a3b9d926a91936da2acc90d5e27f1ad326745779cd3759d'
