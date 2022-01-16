@@ -1011,11 +1011,10 @@ diff --git a/include/net/bluetooth/hci.h b/include/net/bluetooth/hci.h
 index 63065bc01b766..383342efcdc46 100644
 --- a/include/net/bluetooth/hci.h
 +++ b/include/net/bluetooth/hci.h
-@@ -246,6 +246,15 @@ enum {
- 	 * HCI after resume.
+@@ -247,6 +247,15 @@ enum {
  	 */
  	HCI_QUIRK_NO_SUSPEND_NOTIFIER,
-+
+ 
 +	/*
 +	 * When this quirk is set, LE tx power is not queried on startup
 +	 * and the min/max tx power values default to HCI_TX_POWER_INVALID.
@@ -1024,9 +1023,10 @@ index 63065bc01b766..383342efcdc46 100644
 +	 * during the hdev->setup vendor callback.
 +	 */
 +	HCI_QUIRK_BROKEN_READ_TRANSMIT_POWER,
- };
- 
- /* HCI device flags */
++
+ 	/* When this quirk is set, max_page for local extended features
+ 	 * is set to 1, even if controller reports higher number. Some
+ 	 * controllers (e.g. RTL8723CS) report more pages, but they
 diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
 index b532f1058d35f..4e51bf3f9603a 100644
 --- a/kernel/bpf/verifier.c
