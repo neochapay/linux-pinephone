@@ -7,8 +7,8 @@ _tag="orange-pi-5.16-20220110-0757"
 _srcname=linux-${_tag}
 _kernelname=${pkgbase#linux}
 _desc="PinePhone Kernel (Megi)"
-pkgver=5.16.0
-pkgrel=3
+pkgver=5.16.1
+pkgrel=1
 arch=('aarch64')
 url="https://github.com/megous/linux/releases/tag/$_tag"
 license=('GPL2')
@@ -19,6 +19,8 @@ source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar
         'linux.preset'
         '60-linux.hook'
         '90-linux.hook'
+        # Upstream Patches
+        '5.16.1.patch'
         # Drop Megi's Modem-Power
         'dts-pinephone-drop-modem-power-node.patch'
         # Implement Martijn's improvements for the cameras
@@ -56,6 +58,7 @@ sha256sums=('bd6ba7f37c62e3e195d44dbd5ee68ee6d63cf4b00c3135446f0cb55fea49d42e'
             'f704a0e790a310f88b76bf5ae7200ef6f47fd6c68c0d2447de0f121cfc93c5ad'
             'ae2e95db94ef7176207c690224169594d49445e04249d2499e9d2fbc117a0b21'
             '71df1b18a3885b151a3b9d926a91936da2acc90d5e27f1ad326745779cd3759d'
+            'b7cba3c4186341f681c97f4ba2dde13686c9161657e323cd279b26cfe1ae8db6'
             '1dc72e9f4c74447555053d0146edc58076067827a7bbe67da5e979d493168484'
             'f88f9837ccbd76cae6d116f4dce40f9977e894241a668a7c0e3938021e9cc6f2'
             '91a43647c446c0792eec25efea265b14230b1bf1681be282b40862903ae98731'
