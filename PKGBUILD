@@ -8,26 +8,33 @@ _srcname=linux-${_tag}
 _kernelname=${pkgbase#linux}
 _desc="PinePhone Kernel (Megi)"
 pkgver=5.16.0
-pkgrel=2
+pkgrel=3
 arch=('aarch64')
 url="https://github.com/megous/linux/releases/tag/$_tag"
 license=('GPL2')
 makedepends=('xmlto' 'docbook-xsl' 'kmod' 'inetutils' 'bc' 'git' 'uboot-tools' 'dtc' 'coreutils')
 options=('!strip')
 source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar.gz"
-        ccu-sun50i-a64-reparent-clocks-to-lower-speed-oscillator.patch
-        # Pinephone Keyboard
-        'd1d849cae12db71aa81ceedaedc1b17a34790367.patch'
-        '2423aac2d6f5db55da99e11fd799ee66fe6f54c6.patch'
         'config'
         'linux.preset'
         '60-linux.hook'
         '90-linux.hook'
+        # Drop Megi's Modem-Power
         'dts-pinephone-drop-modem-power-node.patch'
-        'media-ov5640-Implement-autofocus.patch'    
+        # Implement Martijn's improvements for the cameras
+        'media-ov5640-Implement-autofocus.patch'
+        # Reparent clocks to lower speed-occillator
+        ccu-sun50i-a64-reparent-clocks-to-lower-speed-oscillator.patch
+        # Pinephone Keyboard
+        'pp-keyboard.patch'
+        # Quirk for Kernel-Bug 210681         
         '0107-quirk-kernel-org-bug-210681-firmware_rome_error.patch'
+        # LED patches
         '0177-leds-gpio-make-max_brightness-configurable.patch'
         'panic-led.patch'
+        # https://gitlab.com/mobian1/issues/-/issues/389#note_811711315
+        'mmc-core-wait-for-command-setting-Power-Off-Notification-bit-to-complete.patch'
+        # Bootsplash
         '0001-revert-garbage-collect-fbdev-scrolling-acceleration.patch'
         '0002-revert-fbcon-remove-now-unusued-softback_lines-cursor-argument.patch'
         '0003-revert-fbcon-remove-no-op-fbcon_set_origin.patch'
@@ -45,18 +52,18 @@ source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar
         '0011-bootsplash.patch'
         '0012-bootsplash.patch')
 sha256sums=('bd6ba7f37c62e3e195d44dbd5ee68ee6d63cf4b00c3135446f0cb55fea49d42e'
-            '91a43647c446c0792eec25efea265b14230b1bf1681be282b40862903ae98731'
-            '55df9f725c2dc5d166866a40538af1938a1cc16a91658b94c3b971227a6bb986'
-            '87eef2393009a07cec8fab18eab2a74a3658534ce745c2c36389dd334cf6f416'
             '37a812242580130f8f33d780a5c9897fddf49410def9a3a64cfcbff58c93ef15'
             'f704a0e790a310f88b76bf5ae7200ef6f47fd6c68c0d2447de0f121cfc93c5ad'
             'ae2e95db94ef7176207c690224169594d49445e04249d2499e9d2fbc117a0b21'
             '71df1b18a3885b151a3b9d926a91936da2acc90d5e27f1ad326745779cd3759d'
             '1dc72e9f4c74447555053d0146edc58076067827a7bbe67da5e979d493168484'
             'f88f9837ccbd76cae6d116f4dce40f9977e894241a668a7c0e3938021e9cc6f2'
+            '91a43647c446c0792eec25efea265b14230b1bf1681be282b40862903ae98731'
+            '37cf9984a1a069f5a49ef7a44e186eb4c5fa7283aefd01d45f4798d64d00c754'
             '5e804e1f241ce542f3f0e83d274ede6aa4b0539e510fb9376f8106e8732ce69b'
             'f34385a6e064583cfdf6fe660b2acf45828a009c047c933a8e7a6c5147ba9df7'
             '29ab48c207ccf90262596397026d3a20c7b7032833b17d6c77d7226db57e6914'
+            '51923f187cd90c2ec46fee6c41d67630ccc72ed1f441c35797e3f3a80c60ce20'
             '365d4225a7db60bd064ebbc34ce0ae582a0c378ad6c4cec7960a5ae4641a6757'
             'ddf1e7fc55cc6fe81ecfcac84112e573ca95713c027bc84d69cf880812fd6ff3'
             '94a8538251ad148f1025cc3de446ce64f73dc32b01815426fb159c722e8fa5bc'
