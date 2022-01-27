@@ -3,12 +3,12 @@
 # Maintainer: Philip Müller <philm@manjaro.org>
 
 pkgbase=linux-pinephone
-_tag="orange-pi-5.16-20220123-2219"
+_tag="orange-pi-5.16-20220127-0325"
 _srcname=linux-${_tag}
 _kernelname=${pkgbase#linux}
 _desc="PinePhone Kernel (Megi)"
 pkgver=5.16.2
-pkgrel=3
+pkgrel=4
 arch=('aarch64')
 url="https://github.com/megous/linux/releases/tag/$_tag"
 license=('GPL2')
@@ -20,39 +20,41 @@ source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar
         '60-linux.hook'
         '90-linux.hook'
         # Drop Megi's Modem-Power
-        'dts-pinephone-drop-modem-power-node.patch'
+        '0101-arm64-dts-pinephone-drop-modem-power-node.patch'
+        '0102-arm64-dts-pinephone-pro-remove-modem-node.patch'
         # Implement Martijn's improvements for the cameras
-        'media-ov5640-Implement-autofocus.patch'
+        '0103-media-ov5640-Implement-autofocus.patch'
         # Reparent clocks to lower speed-occillator
-        ccu-sun50i-a64-reparent-clocks-to-lower-speed-oscillator.patch
+        '0104-ccu-sun50i-a64-reparent-clocks-to-lower-speed-oscillator.patch'
         # Quirk for Kernel-Bug 210681         
-        '0107-quirk-kernel-org-bug-210681-firmware_rome_error.patch'
+        '0105-quirk-kernel-org-bug-210681-firmware_rome_error.patch'
         # LED patches
-        '0177-leds-gpio-make-max_brightness-configurable.patch'
-        'panic-led.patch'
+        '0106-leds-gpio-make-max_brightness-configurable.patch'
+        '0107-panic-led.patch'
         # Bootsplash
-        '0001-revert-garbage-collect-fbdev-scrolling-acceleration.patch'
-        '0002-revert-fbcon-remove-now-unusued-softback_lines-cursor-argument.patch'
-        '0003-revert-fbcon-remove-no-op-fbcon_set_origin.patch'
-        '0004-revert-fbcon-remove-soft-scrollback-code.patch'
-        '0001-bootsplash.patch'
-        '0002-bootsplash.patch'
-        '0003-bootsplash.patch'
-        '0004-bootsplash.patch'
-        '0005-bootsplash.patch'
-        '0006-bootsplash.patch'
-        '0007-bootsplash.patch'
-        '0008-bootsplash.patch'
-        '0009-bootsplash.patch'
-        '0010-bootsplash.patch'
-        '0011-bootsplash.patch'
-        '0012-bootsplash.patch')
-sha256sums=('a54dc7b4d9a50f645033b48e326fde113e126f04dd14ea407ea02fde58cfd373'
-            '41077c30a75ee436539e7ebc5df8eead171447a8ac236c7f39493f0a51cc5b6c'
+        '0201-revert-garbage-collect-fbdev-scrolling-acceleration.patch'
+        '0202-revert-fbcon-remove-now-unusued-softback_lines-cursor-argument.patch'
+        '0203-revert-fbcon-remove-no-op-fbcon_set_origin.patch'
+        '0204-revert-fbcon-remove-soft-scrollback-code.patch'
+        '0301-bootsplash.patch'
+        '0302-bootsplash.patch'
+        '0303-bootsplash.patch'
+        '0304-bootsplash.patch'
+        '0305-bootsplash.patch'
+        '0306-bootsplash.patch'
+        '0307-bootsplash.patch'
+        '0308-bootsplash.patch'
+        '0309-bootsplash.patch'
+        '0310-bootsplash.patch'
+        '0311-bootsplash.patch'
+        '0312-bootsplash.patch')
+sha256sums=('d32fbf944ffd5c464c730074f6e615353e138a05dce4b29e90d8e1600a1590db'
+            'f2a6c9470cfe37e2ad3b784b44ec4e3d7411599f5820b7babe77bfdafcbe8f93'
             'f704a0e790a310f88b76bf5ae7200ef6f47fd6c68c0d2447de0f121cfc93c5ad'
             'ae2e95db94ef7176207c690224169594d49445e04249d2499e9d2fbc117a0b21'
             '71df1b18a3885b151a3b9d926a91936da2acc90d5e27f1ad326745779cd3759d'
-            '1dc72e9f4c74447555053d0146edc58076067827a7bbe67da5e979d493168484'
+            '4438dbb4fc8dd2788da95615cc97394591a6f5dc54851860f912c62fcc934973'
+            'ee0e1f7f9dc2f81aaa679664bf587760ce7225f494433af796b45e8500439576'
             'f88f9837ccbd76cae6d116f4dce40f9977e894241a668a7c0e3938021e9cc6f2'
             '91a43647c446c0792eec25efea265b14230b1bf1681be282b40862903ae98731'
             '5e804e1f241ce542f3f0e83d274ede6aa4b0539e510fb9376f8106e8732ce69b'
