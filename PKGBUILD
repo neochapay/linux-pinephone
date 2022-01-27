@@ -8,7 +8,7 @@ _srcname=linux-${_tag}
 _kernelname=${pkgbase#linux}
 _desc="PinePhone Kernel (Megi)"
 pkgver=5.16.2
-pkgrel=2
+pkgrel=3
 arch=('aarch64')
 url="https://github.com/megous/linux/releases/tag/$_tag"
 license=('GPL2')
@@ -48,7 +48,7 @@ source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar
         '0011-bootsplash.patch'
         '0012-bootsplash.patch')
 sha256sums=('a54dc7b4d9a50f645033b48e326fde113e126f04dd14ea407ea02fde58cfd373'
-            '37a812242580130f8f33d780a5c9897fddf49410def9a3a64cfcbff58c93ef15'
+            '41077c30a75ee436539e7ebc5df8eead171447a8ac236c7f39493f0a51cc5b6c'
             'f704a0e790a310f88b76bf5ae7200ef6f47fd6c68c0d2447de0f121cfc93c5ad'
             'ae2e95db94ef7176207c690224169594d49445e04249d2499e9d2fbc117a0b21'
             '71df1b18a3885b151a3b9d926a91936da2acc90d5e27f1ad326745779cd3759d'
