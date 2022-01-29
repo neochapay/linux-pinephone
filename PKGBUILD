@@ -7,7 +7,7 @@ _tag="orange-pi-5.16-20220128-1757"
 _srcname=linux-${_tag}
 _kernelname=${pkgbase#linux}
 _desc="PinePhone Kernel (Megi)"
-pkgver=5.16.3
+pkgver=5.16.4
 pkgrel=1
 arch=('aarch64')
 url="https://github.com/megous/linux/releases/tag/$_tag"
@@ -19,6 +19,7 @@ source=("linux-$_tag.tar.gz::https://github.com/megous/linux/archive/${_tag}.tar
         'linux.preset'
         '60-linux.hook'
         '90-linux.hook'
+        '5.16.3-4.patch'
         # Drop Megi's Modem-Power
         '0101-arm64-dts-pinephone-drop-modem-power-node.patch'
         '0102-arm64-dts-pinephone-pro-remove-modem-node.patch'
@@ -53,6 +54,7 @@ sha256sums=('2823712338432bc57b41bc0a13c17f1d7457b2f3c277306c570ca3a1d97435e5'
             'f704a0e790a310f88b76bf5ae7200ef6f47fd6c68c0d2447de0f121cfc93c5ad'
             'ae2e95db94ef7176207c690224169594d49445e04249d2499e9d2fbc117a0b21'
             '71df1b18a3885b151a3b9d926a91936da2acc90d5e27f1ad326745779cd3759d'
+            '6816eaa78c7a3a78b863c51d89147a0d66b3d5607faca1ed65d0b7d1d8e03133'
             '4438dbb4fc8dd2788da95615cc97394591a6f5dc54851860f912c62fcc934973'
             'ee0e1f7f9dc2f81aaa679664bf587760ce7225f494433af796b45e8500439576'
             'f88f9837ccbd76cae6d116f4dce40f9977e894241a668a7c0e3938021e9cc6f2'
